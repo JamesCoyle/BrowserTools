@@ -1,0 +1,24 @@
+{
+	"name": "history",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vite build & vite build -c vite.background.config.ts",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"dev": "vite",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@mdi/js": "^6.6.96"
+	},
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "^2.0.3",
+		"@tsconfig/svelte": "^4.0.1",
+		"svelte": "^3.55.1",
+		"svelte-check": "^2.10.3",
+		"tslib": "^2.5.0",
+		"typescript": "^4.9.3",
+		"vite": "^4.2.0"
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"manifest_version": 3,
+	"name": "History Viewer",
+	"version": "0.1",
+	"short_name": "History",
+	"author": "James Coyle",
+	"description": "Easy access to your current browser session's history",
+	"icons": {
+		"512": "icon.png"
+	},
+	"permissions": [
+		"history",
+		"storage",
+		"favicon"
+	],
+	"action": {
+		"default_popup": "popup.html",
+		"default_title": "History"
+	},
+	"options_page": "options.html",
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"windows": "Alt+H",
+				"mac": "Alt+H",
+				"chromeos": "Alt+H",
+				"linux": "Alt+H"
+			}
+		}
+	},
+	"background": {
+		"service_worker": "build/background.js"
+	}
+}

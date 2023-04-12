@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "apps/downloads"
+		},
+		{
+			"path": "apps/history"
+		}
+	],
+	"settings": {}
+}
