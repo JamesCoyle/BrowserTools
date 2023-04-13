@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "apps/history"
+		},
+		{
+			"path": "packages/ui"
 		}
 	],
 	"settings": {}

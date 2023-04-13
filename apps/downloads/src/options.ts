@@ -1,3 +1,5 @@
+import "ui/global.css"
+
 import Options from './Options.svelte'
 import { darkMode } from './stores/settings'
 
