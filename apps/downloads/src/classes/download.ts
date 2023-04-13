@@ -6,7 +6,7 @@ export enum DownloadState {
 	paused,
 	canceled,
 	error,
-	deleted
+	deleted,
 }
 
 export default class Download {

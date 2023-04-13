@@ -8,11 +8,7 @@
 	"icons": {
 		"512": "icon.png"
 	},
-	"permissions": [
-		"history",
-		"storage",
-		"favicon"
-	],
+	"permissions": ["history", "storage", "favicon"],
 	"action": {
 		"default_popup": "popup.html",
 		"default_title": "History"

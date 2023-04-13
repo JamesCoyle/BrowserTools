@@ -1,4 +1,4 @@
-import "ui/global.css"
+import 'ui/global.css'
 
 import Popup from './Popup.svelte'
 import { darkMode } from './stores/settings'

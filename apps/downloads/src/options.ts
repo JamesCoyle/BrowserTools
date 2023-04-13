@@ -1,4 +1,4 @@
-import "ui/global.css"
+import 'ui/global.css'
 
 import Options from './Options.svelte'
 import { darkMode } from './stores/settings'
@@ -6,7 +6,6 @@ import { darkMode } from './stores/settings'
 const app = new Options({
 	target: document.getElementById('app'),
 })
-
 
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
 

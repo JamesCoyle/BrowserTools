@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { darkMode, theme, iconColor, iconColorDark, showShelf, notify, defaultIconColors } from './stores/settings'
+	import { theme, iconColor, iconColorDark, showShelf, notify, defaultIconColors } from './stores/settings'
 
 	import Icon from './components/icon.svelte'
 	import IconButton from './components/icon-button.svelte'

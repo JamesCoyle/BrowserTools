@@ -10,7 +10,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@mdi/js": "^6.6.96"
+		"@mdi/js": "^6.6.96",
+		"ui": "workspace:*"
 	},
 	"devDependencies": {
 		"@sveltejs/vite-plugin-svelte": "^2.0.3",

@@ -8,15 +8,8 @@
 	"icons": {
 		"512": "icon.png"
 	},
-	"permissions": [
-		"downloads",
-		"downloads.open",
-		"downloads.shelf",
-		"storage"
-	],
-	"optional_permissions": [
-		"notifications"
-	],
+	"permissions": ["downloads", "downloads.open", "downloads.shelf", "storage"],
+	"optional_permissions": ["notifications"],
 	"action": {
 		"default_popup": "popup.html",
 		"default_title": "Downloads"
