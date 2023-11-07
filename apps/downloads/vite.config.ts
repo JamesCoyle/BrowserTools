@@ -8,7 +8,7 @@ export default defineConfig({
 	base: '',
 	build: {
 		rollupOptions: {
-			input: [resolve(__dirname, 'popup.html'), resolve(__dirname, 'options.html')],
+			input: [resolve(__dirname, 'popup.html'), resolve(__dirname, 'sidePanel.html'), resolve(__dirname, 'options.html')],
 		},
 	},
 })
