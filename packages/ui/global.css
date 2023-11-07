@@ -81,10 +81,6 @@
 	user-select: none;
 }
 
-html {
-	overflow: hidden;
-}
-
 body {
 	display: flex;
 	flex-flow: column nowrap;
