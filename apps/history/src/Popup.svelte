@@ -33,12 +33,6 @@
 </script>
 
 <style>
-	/* set size of popup window */
-	:global(body) {
-		width: 20rem;
-		height: 32rem;
-	}
-
 	main {
 		display: flex;
 		flex-flow: column nowrap;
