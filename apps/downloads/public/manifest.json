@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Download Manager",
-	"version": "4.0",
+	"version": "4.1",
 	"short_name": "Downloads",
 	"author": "James Coyle",
 	"description": "A less intrusive way to access your recent downloads",
