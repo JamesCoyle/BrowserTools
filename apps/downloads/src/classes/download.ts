@@ -108,25 +108,25 @@ function getByteProgress(received, total) {
 
 function getPrimaryAction(dl) {
 	if (dl.resumable)
-		return new Action('Resume', mdiDownload, () => {
+		return new Action('Resume download', mdiDownload, () => {
 			chrome.downloads.resume(dl.id)
 		})
 
 	switch (dl.state) {
 		case DownloadState.downloading:
-			return new Action('Pause', mdiPause, () => {
+			return new Action('Pause download', mdiPause, () => {
 				chrome.downloads.pause(dl.id)
 			})
 
 		case DownloadState.complete:
-			return new Action('Delete', mdiDelete, () => {
+			return new Action('Delete file', mdiDelete, () => {
 				chrome.downloads.removeFile(dl.id)
 			})
 
 		case DownloadState.canceled:
 		case DownloadState.error:
 		case DownloadState.deleted:
-			return new Action('Retry', mdiDownload, () => {
+			return new Action('Retry download', mdiDownload, () => {
 				chrome.downloads.download({ url: dl.url })
 			})
 	}
@@ -137,14 +137,14 @@ function getSecondaryAction(dl) {
 		case DownloadState.downloading:
 		case DownloadState.error:
 		case DownloadState.paused:
-			return new Action('Cancel', mdiClose, () => {
+			return new Action('Cancel download', mdiClose, () => {
 				chrome.downloads.cancel(dl.id)
 			})
 
 		case DownloadState.complete:
 		case DownloadState.canceled:
 		case DownloadState.deleted:
-			return new Action('Clear', mdiClose, () => {
+			return new Action('Clear from list', mdiClose, () => {
 				chrome.downloads.erase({ id: dl.id })
 			})
 	}
