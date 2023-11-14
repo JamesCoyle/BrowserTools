@@ -1,4 +1,4 @@
-import { mdiPause, mdiDelete, mdiDownload, mdiClose } from '@mdi/js'
+import { mdiPause, mdiDelete, mdiDownload, mdiClose, mdiFolderOpen } from '@mdi/js'
 
 export enum DownloadState {
 	complete,
@@ -23,7 +23,7 @@ export default class Download {
 	}
 
 	get actions() {
-		return [getPrimaryAction(this), getSecondaryAction(this)]
+		return [getOpenInFolderAction(this), getPrimaryAction(this), getSecondaryAction(this)]
 	}
 
 	constructor(dl) {
@@ -104,6 +104,13 @@ function getByteProgress(received, total) {
 	}
 
 	return r + '/' + t + ' ' + sizes[i]
+}
+
+function getOpenInFolderAction(dl) {
+	if (dl.state === DownloadState.complete)
+		return new Action('Open in folder', mdiFolderOpen, () => {
+			chrome.downloads.show(dl.id)
+		})
 }
 
 function getPrimaryAction(dl) {
