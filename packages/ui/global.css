@@ -8,6 +8,34 @@
 	src: url('fonts/Poppins/Regular.woff2');
 }
 
+@media (prefers-color-scheme: light) {
+	:root {
+		--text-color: #292a2d;
+		--background-color: white;
+		--hover-color: hsla(0, 0%, 0%, 0.15);
+
+		color-scheme: light;
+	}
+
+	.dark-only {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: white;
+		--background-color: #292a2d;
+		--hover-color: hsla(0, 0%, 100%, 0.15);
+
+		color-scheme: dark;
+	}
+
+	.light-only {
+		display: none;
+	}
+}
+
 .theme-light {
 	--text-color: #292a2d;
 	--background-color: rgb(255, 255, 255);
@@ -40,34 +68,6 @@
 	display: revert;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--text-color: #292a2d;
-		--background-color: white;
-		--hover-color: hsla(0, 0%, 0%, 0.15);
-
-		color-scheme: light;
-	}
-
-	.dark-only {
-		display: none;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--text-color: white;
-		--background-color: #292a2d;
-		--hover-color: hsla(0, 0%, 100%, 0.15);
-
-		color-scheme: dark;
-	}
-
-	.light-only {
-		display: none;
-	}
-}
-
 * {
 	--pad-default: 1rem;
 	--gap-default: 1rem;
@@ -81,22 +81,28 @@
 	user-select: none;
 }
 
-body {
-	display: flex;
-	flex-flow: column nowrap;
+html,
+body,
+#app {
 	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: var(--text-color);
+	background-color: var(--background-color);
 	font-size: 1rem;
 	font-family: 'Poppins', 'Roboto', Tahoma, sans-serif;
 }
 
-svg {
-	fill: currentColor;
+#app {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
 }
 
-main {
-	min-height: 100vh;
-	color: var(--text-color);
-	background-color: var(--background-color);
+svg {
+	fill: currentColor;
 }
 
 button {

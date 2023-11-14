@@ -1,7 +1,8 @@
 import 'ui/global.css'
+import "./theme"
 
 import Options from './Options.svelte'
-import { darkMode } from './stores/settings'
+import { darkMode } from './store'
 
 const app = new Options({
 	target: document.getElementById('app'),

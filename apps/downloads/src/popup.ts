@@ -1,7 +1,8 @@
 import 'ui/global.css'
+import "./theme"
 
 import Popup from './Popup.svelte'
-import { darkMode } from './stores/settings'
+import { darkMode } from './store'
 
 const app = new Popup({
 	target: document.getElementById('app'),

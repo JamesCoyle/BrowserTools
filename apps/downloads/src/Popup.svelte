@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from './stores/settings'
+	import { settings } from './store'
 
 	import SearchHeader from './components/search-header.svelte'
 	import DownloadItem from './components/download-item.svelte'
@@ -65,27 +65,15 @@
 	}
 </script>
 
-<style>
-	main {
-		display: flex;
-		flex-flow: column nowrap;
-		height: 100%;
-	}
-</style>
-
-<main class="theme-{$theme}">
-	<SearchHeader placeholder="Search downloads" bind:query />
-
-	<div class="scrollable">
-		{#each downloads as item (item.id)}
-			<DownloadItem {item} active={!!states[item.id]} />
-		{:else}
-			<div class="col justify-content-center align-items-center" style="height: 100%">
-				<img width="160" height="160" src="images/no-downloads.svg" alt="" />
-				<p style="opacity: .6">Files you download appear here</p>
-			</div>
-		{/each}
-	</div>
-
-	<BottomButton icon={mdiDownload} action={openTab}>View all downloads</BottomButton>
+<SearchHeader placeholder="Search downloads" bind:query />
+<main class="scrollable">
+	{#each downloads as item (item.id)}
+		<DownloadItem {item} active={!!states[item.id]} />
+	{:else}
+		<div class="col justify-content-center align-items-center" style="height: 100%">
+			<img width="160" height="160" src="images/no-downloads.svg" alt="" />
+			<p style="opacity: .6">Files you download appear here</p>
+		</div>
+	{/each}
 </main>
+<BottomButton icon={mdiDownload} action={openTab}>View all downloads</BottomButton>

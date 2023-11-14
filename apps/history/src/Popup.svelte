@@ -7,6 +7,8 @@
 
 	import { mdiHistory } from '@mdi/js'
 
+	document.body.classList.add(`theme-${$theme}`)
+
 	let history = []
 	let query = ''
 
@@ -32,22 +34,10 @@
 	}
 </script>
 
-<style>
-	main {
-		display: flex;
-		flex-flow: column nowrap;
-		height: 100%;
-	}
-</style>
-
-<main class="theme-{$theme}">
-	<SearchHeader bind:query />
-
-	<div class="scrollable">
-		{#each history as item (item.id)}
-			<HistoryItem {item} />
-		{/each}
-	</div>
-
-	<BottomButton icon={mdiHistory} action={openHistoryTab}>View full history</BottomButton>
+<SearchHeader placeholder="Search history" bind:query />
+<main class="scrollable">
+	{#each history as item (item.id)}
+		<HistoryItem {item} />
+	{/each}
 </main>
+<BottomButton icon={mdiHistory} action={openHistoryTab}>View full history</BottomButton>

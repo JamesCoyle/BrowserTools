@@ -1,11 +1,13 @@
 <script lang="ts">
-	import { theme, iconColor, iconColorDark, showShelf, notify, defaultIconColors } from './stores/settings'
+	import { settings, defaultIconColors } from './store'
 
 	import Icon from './components/icon.svelte'
 	import IconButton from './components/icon-button.svelte'
 
 	import { mdiAlertOutline, mdiCheck, mdiCodeBraces, mdiDownload, mdiPlay, mdiPause, mdiRestore } from '@mdi/js'
 	import { icoGithub } from './custom-icons'
+
+	const { theme, iconColor, iconColorDark, showShelf, notify } = settings
 
 	$: $notify, updateNotificationPermission()
 
@@ -124,7 +126,7 @@
 	}
 </style>
 
-<main class="theme-{$theme}">
+<main>
 	<div class="info col pad" style="--gap: 2rem">
 		<h1>Download Manager</h1>
 		<p class="fs2">A less intrusive way to access your recent downloads.</p>
@@ -173,7 +175,7 @@
 
 			<div class="setting-item row align-items-stretch">
 				<label class="setting-name flex-auto row align-items-center" for="setting-shelf" title="Toggle visibility of the default downloads shelf">
-					<span class="">Show Chrome download shelf</span>
+					<span class="">Show default downloads UI</span>
 				</label>
 				<input id="setting-shelf" type="checkbox" name="shelf" bind:checked={$showShelf} />
 			</div>
