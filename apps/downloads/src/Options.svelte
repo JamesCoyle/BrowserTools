@@ -105,24 +105,15 @@
 
 	.setting-theme.auto {
 		position: relative;
-		background: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(215, 222, 226, 1) 35%, rgba(255, 255, 255, 1) 100%);
-	}
-
-	.setting-theme.auto::before {
-		content: linear-gradient(0deg, rgba(61, 61, 61, 1) 0%, rgba(9, 9, 9, 1) 35%, rgba(52, 52, 52, 1) 100%);
-		position: absolute;
-		inset: 0px;
-		width: 100%;
-		height: 100%;
-		clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+		background: linear-gradient(150deg, rgba(217, 217, 217, 1) 0%, rgba(215, 222, 226, 1) 35% 49%, rgba(9, 9, 9, 1) 50%, rgba(52, 52, 52, 1) 100%);
 	}
 
 	.setting-theme.light {
-		background: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(215, 222, 226, 1) 35%, rgba(255, 255, 255, 1) 100%);
+		background: linear-gradient(150deg, rgba(217, 217, 217, 1) 0%, rgba(215, 222, 226, 1) 35%, rgba(255, 255, 255, 1) 100%);
 	}
 
 	.setting-theme.dark {
-		background: linear-gradient(0deg, rgba(61, 61, 61, 1) 0%, rgba(9, 9, 9, 1) 35%, rgba(52, 52, 52, 1) 100%);
+		background: linear-gradient(150deg, rgba(61, 61, 61, 1) 0%, rgba(9, 9, 9, 1) 35%, rgba(52, 52, 52, 1) 100%);
 	}
 </style>
 
