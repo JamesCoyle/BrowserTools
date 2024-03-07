@@ -67,15 +67,18 @@ async function showNotification(type: string, id: string, options = {}) {
 	if (!await settingEnabled(type)) return
 
 	Download.get(id).then((download) => {
+		const buttons = []
+		for (let action of download.actions) {
+			buttons.push({ title: action.description })
+		}
+
 		chrome.notifications.create(id.toString(), {
 			type: 'basic',
 			title: download.name,
 			message: '',
 			contextMessage: download.progressStr.split('/').pop(),
 			iconUrl: '../icon.png',
-			buttons: download.actions.map((action) => {
-				return { title: action.description }
-			}),
+			buttons,
 
 			...options,
 		})

@@ -1,4 +1,4 @@
-import { mdiPause, mdiDelete, mdiDownload, mdiClose, mdiFolderOpen } from '@mdi/js'
+import { mdiPause, mdiDelete, mdiDownload, mdiClose, mdiFolderOpen, mdiPlay, mdiDownloadOff } from '@mdi/js'
 
 export enum DownloadState {
 	complete = 'Complete',
@@ -24,7 +24,7 @@ export default class Download {
 	}
 
 	get actions() {
-		return [this.getOpenInFolderAction(), this.getPrimaryAction(), this.getSecondaryAction()]
+		return [this.getOpenInFolderAction(), this.getPrimaryAction(), this.getSecondaryAction()].filter((i) => i)
 	}
 
 	constructor(dl: chrome.downloads.DownloadItem) {
@@ -59,7 +59,7 @@ export default class Download {
 
 	private getPrimaryAction() {
 		if (this.resumable)
-			return new Action('Resume download', mdiDownload, () => {
+			return new Action('Resume download', mdiPlay, () => {
 				chrome.downloads.resume(this.id)
 			})
 
@@ -88,7 +88,7 @@ export default class Download {
 			case DownloadState.downloading:
 			case DownloadState.error:
 			case DownloadState.paused:
-				return new Action('Cancel download', mdiClose, () => {
+				return new Action('Cancel download', mdiDownloadOff, () => {
 					chrome.downloads.cancel(this.id)
 				})
 
