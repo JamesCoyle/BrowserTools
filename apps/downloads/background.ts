@@ -1,4 +1,4 @@
-import Download, { DownloadState, getDownloads } from './src/classes/download'
+import { DownloadState, getDownloads } from './src/classes/download'
 import Notify from './src/classes/notify'
 
 initialize()
@@ -95,11 +95,11 @@ function updateDownloads() {
 					})
 				)
 				.then((items) => {
-					const downloads = {}
+					const downloadStates = {}
 					for (let item of items) {
-						downloads[item.id] = item.state
+						downloadStates[item.id] = item.state
 					}
-					chrome.storage.local.set(downloads)
+					chrome.storage.local.set(downloadStates)
 				})
 		})
 }
@@ -119,7 +119,7 @@ function setIcon() {
 	})
 }
 
-function isIconDark(theme, darkMode) {
+function isIconDark(theme: string, darkMode: boolean) {
 	if (theme === 'dark') return true
 	if (theme === 'auto' && darkMode) return true
 	return false
@@ -134,7 +134,6 @@ function setShelf() {
 		.then(({ showShelf }) => {
 			try {
 				chrome.downloads.setShelfEnabled(showShelf)
-				console.info('Shelf set', { showShelf })
 			} catch (e) {
 				console.warn(e)
 			}
@@ -146,7 +145,7 @@ function updateBadge() {
 	chrome.storage.local.get().then((downloads) => {
 		let states = Object.values(downloads)
 		let text = states.length > 0 ? states.length.toString() : ''
-		let color
+		let color: string
 
 		if (states.includes(DownloadState.error)) color = '#FE4134'
 		else if (states.includes(DownloadState.downloading)) color = '#3369d7'

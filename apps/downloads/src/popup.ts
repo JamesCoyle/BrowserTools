@@ -10,8 +10,6 @@ const app = new Popup({
 
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
-console.log({ isDarkMode })
-
 darkMode.set(isDarkMode.matches)
 isDarkMode.addEventListener('change', (e) => {
 	darkMode.set(e.matches)

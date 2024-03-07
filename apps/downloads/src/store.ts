@@ -1,6 +1,6 @@
-import { writable } from 'svelte/store'
+import { writable, type Writable } from 'svelte/store'
 
-function subscribe(store, key, value) {
+function subscribe(store: Writable<any>, key: string, value: any) {
 	if (value !== undefined) store.set(value)
 	store.subscribe((val) => {
 		chrome.storage.sync.set({ [key]: val })

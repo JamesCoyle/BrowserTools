@@ -10,8 +10,6 @@ const app = new Options({
 
 const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
-console.log('Dark:', isDarkMode.matches)
-
 darkMode.set(isDarkMode.matches)
 isDarkMode.addEventListener('change', (e) => {
 	darkMode.set(e.matches)

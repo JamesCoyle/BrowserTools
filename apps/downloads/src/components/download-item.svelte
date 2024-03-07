@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
+	import type Download from '../classes/download'
 	import { DownloadState } from '../classes/download'
 
-	export let item
-	export let active
+	export let item: Download
+	export let active: boolean
 
-	let icon
+	let iconSrc: string
 
 	// get icon
-	chrome.downloads.getFileIcon(item.id, (i) => {
-		icon = i
+	chrome.downloads.getFileIcon(item.id, (i: string) => {
+		iconSrc = i
 	})
 
-	function handleFileClick(e) {
+	function handleFileClick(e: { ctrlKey: boolean }) {
 		item.open(e.ctrlKey)
 	}
 </script>
@@ -49,7 +50,9 @@
 		height: 100%;
 		background-color: transparent;
 		transform: translateX(var(--progress));
-		transition: transform 500ms linear, background-color 100ms ease-out;
+		transition:
+			transform 500ms linear,
+			background-color 100ms ease-out;
 		opacity: 0.5;
 		z-index: -1;
 	}
@@ -117,9 +120,9 @@
 	}
 </style>
 
-<div class="download {item.state}" class:active style="--progress: {item.progress}%">
+<div class="download {item.state.toLocaleLowerCase()}" class:active style="--progress: {item.progress}%">
 	<button class="file" title={item.name} on:click={handleFileClick}>
-		<img class="icon" src={icon} alt="" />
+		<img class="icon" src={iconSrc} alt="" />
 		<div class="file-info">
 			<div class="filename">{item.name}</div>
 			<div class="state">
